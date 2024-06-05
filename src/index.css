@@ -285,6 +285,15 @@ progress {
   font-size: inherit;
   padding: 0.8rem;
 }
+.recodrs-con{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 5rem;
+}
 .records{
   display: flex;
   flex-direction: column;

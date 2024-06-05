@@ -16,7 +16,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-function YourProgress({ points, maxPoints }) {
+function YourProgress({ points, maxPoints, dispatch }) {
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -27,9 +27,9 @@ function YourProgress({ points, maxPoints }) {
         };
     }, []);
 
-    useEffect(() => {
-        console.log('Points:', points);
-    }, [ points ]);
+    // useEffect(() => {
+    //     console.log('Points:', points);
+    // }, [ points ]);
 
     if (!points || points.length === 0) {
         return <div>No data to display</div>;
@@ -96,13 +96,21 @@ function YourProgress({ points, maxPoints }) {
     };
 
     return (
-        <div>
-            <h2>Your Progress</h2>
-            <div className='records'>
+        <>
 
-                <Line data={data} options={options} ref={chartRef} />
+
+            <div className='recodrs-con'>
+                <h2>Your Progress</h2>
+                <div className='records'>
+
+                    <Line data={data} options={options} ref={chartRef} />
+                </div>
             </div>
-        </div>
+            <button className="btn btn-restart "
+                onClick={() => dispatch({ type: 'restart' })}
+            >  Restart</button>
+        </>
+
     );
 }
 

@@ -136,7 +136,7 @@ function Main() {
                     maxPoints={maxPoints} />}
 
             {status === 'displayRecords' &&
-                <YourProgress points={pointsRecord.map(record => record.points)} maxPoints={maxPoints} />}
+                <YourProgress points={pointsRecord.map(record => record.points)} maxPoints={maxPoints} dispatch={dispatch} />}
 
             {status === 'active' && (
                 <>
