@@ -1,9 +1,4 @@
-import YourProgress from "./chart/YourProgress";
-
-import { useQuiz } from "./contexts/QuizContexts";
-function Start() {
-  const { questionsNum, dispatch } = useQuiz();
-
+function Start({ questionsNum, dispatch }) {
   return (
     <>
       <div className="start">

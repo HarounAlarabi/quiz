@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
-import { useQuiz } from "./contexts/QuizContexts";
-import Questions from "./Questions";
 
-function Options() {
-  const { dispatch, answer, questions, index } = useQuiz();
-
-  const options = questions[index];
-  const correctAnswer = questions[index]?.correctAnswer || "";
-
-  console.log("options", options);
+function Options({ dispatch, answer, options }) {
   const [newOptions, setShuffledOptions] = useState([]);
+  const correctAnswer = options.correctAnswer;
 
+  // console.log(correctAnswer);
   const answered = answer !== null;
 
   console.log("categoryPoints", options.correctAnswer);
+  const incorrectAnswers = [...options.incorrectAnswers];
   useEffect(() => {
     const newOptions = shuffle([
       ...(options.incorrectAnswers || []),
